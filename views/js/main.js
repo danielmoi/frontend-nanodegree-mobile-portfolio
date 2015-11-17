@@ -441,7 +441,7 @@ var resizePizzas = function (size) {
     }
 
 
-    var randomPizzas = document.querySelectorAll(".randomPizzaContainer");
+    var randomPizzas = document.getElementsbyClassName("randomPizzaContainer");
 
     for (var i = 0; i < randomPizzas.length; i++) {
       randomPizzas[i].style.width = newWidth + "%";
@@ -499,7 +499,7 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   // move all variable declarations outside of loop
-  var items = document.querySelectorAll('.mover');
+  var items = document.getElementsbyClassName('mover');
   var len = items.length;
   var phase;
   
