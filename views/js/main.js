@@ -538,15 +538,24 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function () {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
-    var elem = document.createElement('img');
+  // move variable declarations outside of loop
+  var movingPizzas = document.querySelector("#movingPizzas1");
+  var elem;
+  
+  // calculate number of pizzas needed, instead of a static "200"
+  var screenHeight = window.screen.height;
+  var rows = Math.floor(screenHeight / 256);
+  var pizzasNeeded = rows * cols;
+  
+  for (var i = 0; i < pizzasNeeded; i++) {
+    elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+    movingPizzas.appendChild(elem);
   }
   updatePositions();
 });
